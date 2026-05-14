@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
@@ -16,7 +17,7 @@ export const Login = () => {
     e.preventDefault();
     setLoading(true);
     setError('');
-      try {
+    try {
   const fakeUser = {
     email: email,
     role: email.includes('logistik')
@@ -32,7 +33,8 @@ export const Login = () => {
   setError('Login gagal');
 } finally {
   setLoading(false);
-}
+  }
+};
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-slate-50 p-4">
