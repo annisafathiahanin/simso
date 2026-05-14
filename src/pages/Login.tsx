@@ -33,7 +33,7 @@ export const Login = () => {
   setError('Login gagal');
 } finally {
   setLoading(false);
-  }
+}
 };
 
   return (
