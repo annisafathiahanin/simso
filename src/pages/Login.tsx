@@ -16,16 +16,23 @@ export const Login = () => {
     e.preventDefault();
     setLoading(true);
     setError('');
-    try {
-      const res = await axios.post('/.netlify/functions/auth', { email, password });
-      login(res.data.token, res.data.user);
-      navigate('/');
-    } catch (err: any) {
-      setError(err.response?.data?.message || 'Email atau password salah');
-    } finally {
-      setLoading(false);
-    }
+      try {
+  const fakeUser = {
+    email: email,
+    role: email.includes('logistik')
+      ? 'logistik'
+      : email.includes('manajemen')
+      ? 'manajemen'
+      : 'farmasi'
   };
+
+  login('fake-token', fakeUser);
+  navigate('/');
+} catch (err: any) {
+  setError('Login gagal');
+} finally {
+  setLoading(false);
+}
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-slate-50 p-4">
