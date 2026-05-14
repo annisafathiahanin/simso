@@ -19,7 +19,7 @@ export const Login = () => {
     setError('');
     try {
   const fakeUser = {
-  id: 1,
+  id: '1',
   name: 'Test User',
   email: email,
   role: email.includes('logistik')
