@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import { Activity, Lock, Mail, AlertCircle } from 'lucide-react';
-import axios from 'axios';
+
 
 export const Login = () => {
   const [email, setEmail] = useState('');
@@ -19,15 +19,17 @@ export const Login = () => {
     setError('');
     try {
   const fakeUser = {
-    email: email,
-    role: email.includes('logistik')
-      ? 'logistik'
-      : email.includes('manajemen')
-      ? 'manajemen'
-      : 'farmasi'
-  };
+  id: 1,
+  name: 'Test User',
+  email: email,
+  role: email.includes('logistik')
+    ? 'logistik'
+    : email.includes('manajemen')
+    ? 'manajemen'
+    : 'farmasi'
+};
 
-  login('fake-token', fakeUser);
+login('fake-token', fakeUser);
   navigate('/');
 } catch (err: any) {
   setError('Login gagal');
